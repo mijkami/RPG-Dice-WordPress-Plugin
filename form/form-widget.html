@@ -1,0 +1,82 @@
+<style>
+	.customButton {width: 126px};
+</style>
+<div id="mh-rpg-dice-widget-container" class="widget bg-dark my-3 p-3 text-light">
+	<h4 class="text-light">Ajouter des dés</h4>
+	<span class="text-secondary">Liste des dés</span>
+	<div id="mh-rpg-die-type-widget" class="btn-group my-0 flex-wrap " data-toggle="buttons">
+		<button class="dice-widget btn ml-n1 rounded-0 btn-secondary customButton m-1" type="number" name="2" value="0" id="spot0" onclick="incrementDice(id, value, name)">
+			<?php printf('<img src="%1$s" class="float-left"/>',plugins_url( '/assets/images/d2.svg', __FILE__ )); ?>
+			<span class="center">d2</span>
+		</button>
+			<button class="dice-widget btn btn-secondary customButton m-1" type="number" name="4" value="0" id="spot1" onclick="incrementDice(id, value, name)">
+			<?php printf('<img src="%1$s" class="float-left"/>',plugins_url( '/assets/images/d4.svg', __FILE__ )); ?>
+			<span class="center">d4</span>
+		</button>
+		<div class="w-100"></div>
+		<button class="dice-widget btn ml-n1  btn-secondary customButton m-1" type="number" name="6" value="0" id="spot2" onclick="incrementDice(id, value, name)">
+			<?php printf('<img src="%1$s" class="float-left"/>',plugins_url( '/assets/images/d6.svg', __FILE__ )); ?>
+			<span class="center">d6</span>
+		</button>
+
+		<button class="dice-widget btn btn-secondary customButton m-1" type="number" name="8" value="0" id="spot3" onclick="incrementDice(id, value, name)">
+			<?php printf('<img src="%1$s" class="float-left"/>',plugins_url( '/assets/images/d8.svg', __FILE__ )); ?>
+			<span class="center">d8</span>
+		</button>
+		<div class="w-100"></div>
+		<button class="dice-widget btn ml-n1 btn-secondary customButton m-1" type="number" name="10" value="0" id="spot4" onclick="incrementDice(id, value, name)">
+			<?php printf('<img src="%1$s" class="float-left"/>',plugins_url( '/assets/images/d10.svg', __FILE__ )); ?>
+			<span class="center">d10</span>
+		</button>
+		<button class="dice-widget btn btn-secondary customButton m-1" type="number" name="12" value="0" id="spot5" onclick="incrementDice(id, value, name)">
+			<?php printf('<img src="%1$s" class="float-left"/>',plugins_url( '/assets/images/d10.svg', __FILE__ )); ?>
+			<span class="center">d12</span>
+		</button>
+		<div class="w-100"></div>
+		<button class="dice-widget btn ml-n1 btn-secondary customButton m-1" type="number" name="20" value="0" id="spot6" onclick="incrementDice(id, value, name)">
+			<?php printf('<img src="%1$s" class="float-left"/>',plugins_url( '/assets/images/d20.svg', __FILE__ )); ?>
+			<span class="center">d20</span>
+		</button>
+		<button class="dice-widget btn btn-secondary customButton m-1" type="number" name="100" value="0" id="spot7" onclick="incrementDice(id, value, name)">
+			<?php printf('<img src="%1$s" class="float-left"/>',plugins_url( '/assets/images/d100.svg', __FILE__ )); ?>
+			<span class="center mr-n2">d100</span>
+		</button>
+		
+
+		<div class="p-4 row">
+			<p class="px-2">Modifieur</p>
+			<input type="number" id="mh-rpg-modifier-widget" value="0">
+		</div>
+		
+			<label for="mh-rpg-display-all-cb-widget">Montrer tous les lancés ?
+			<input type="checkbox" id="mh-rpg-display-all-cb-widget"></label>
+		<div class="row m-2">
+			<button type="button" id="mh-rpg-roll-button-widget">Roll</button>
+			<button type="button" id="mh-rpg-reset-button-widget">Reset</button>
+		</div>
+		<div>
+			<p><b>Modifier</b> : <span id="modifier-widget"></span></p>
+			<p><b>Result without modifier</b> : <span id="resultNoModif"></span><br/>
+			<p><b>Result Total</b> : <span id="resultDice"></span><br/>
+				<span id="mh-rpg-dice-roll-widget"></span> 
+		<span id="mh-rpg-all-rolls-widget"></span>	
+		
+		
+	</div>
+</div>
+<script>
+	
+	function incrementDice(id, value, name){
+
+		var button = document.getElementById(id);
+		var newValue = parseInt(document.getElementById(id).value)+1;
+		document.getElementById(id).value = newValue;
+		var span = document.querySelector("#"+id + " span");
+		span.innerHTML = "d" + name + " (" + newValue + ")";
+		console.log(button, id, newValue, typeof newValue)
+	}
+	function resetDice(id, value, name){
+
+	}
+
+</script>

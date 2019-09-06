@@ -1,0 +1,140 @@
+<div id="mh-rpg-dice-widget-container" class="widget bg-dark p-3 text-light">
+<div id="mh-rpg-die-type-widget" class="btn-group my-0 btn-group-toggle flex-wrap" data-toggle="buttons">
+	<label class="btn ml-n1 rounded-0 btn-secondary m-1">
+	  <input type="radio" name="diceType" id="option1" autocomplete="off" value="2" checked> 
+	  <?php printf(
+		'<img src="%1$s" alt="polygon dice d2 sprite" class="float-left"/>',
+		plugins_url( '/assets/images/d2.svg', __FILE__ )
+		); ?><span class="center">d2</span>
+	</label>
+	<label class="btn btn-secondary m-1">
+	  <input type="radio" name="diceType" id="option2" autocomplete="off" value="4">
+	  <?php printf(
+		'<img src="%1$s" alt="polygon dice d4 sprite" class="float-left"/>',
+		plugins_url( '/assets/images/d4.svg', __FILE__ )
+		); ?><span class="center">d4</span>
+	</label>
+	<div class="w-100"></div>
+	<label class="btn ml-n1  btn-secondary m-1">
+		<input type="radio" name="diceType" id="option3" autocomplete="off" value="6">
+		<?php printf(
+		'<img src="%1$s" alt="polygon dice d6 sprite" class="float-left"/>',
+		plugins_url( '/assets/images/d6.svg', __FILE__ )
+		); ?><span class="center">d6</span>
+	</label>
+	<label class="btn btn-secondary m-1">
+		<input type="radio" name="diceType" id="option5" autocomplete="off" value="8">
+		<?php printf(
+		'<img src="%1$s" alt="polygon dice d8 sprite" class="float-left"/>',
+		plugins_url( '/assets/images/d8.svg', __FILE__ )
+		); ?><span class="center">d8</span>
+	</label>
+	<div class="w-100"></div>
+	<label class="btn ml-n1 btn-secondary m-1">
+		<input type="radio" name="diceType" id="option6" autocomplete="off" value="10">
+		<?php printf(
+		'<img src="%1$s" alt="polygon dice d10 sprite" class="float-left"/>',
+		plugins_url( '/assets/images/d10.svg', __FILE__ )
+		); ?><span class="center">d10</span>
+	</label>
+	<label class="btn btn-secondary m-1">
+		<input type="radio" name="diceType" id="option7" autocomplete="off" value="12">
+		<?php printf(
+		'<img src="%1$s" alt="polygon dice d12 sprite" class="float-left"/>',
+		plugins_url( '/assets/images/d12.svg', __FILE__ )
+		); ?><span class="center">d12</span>
+	</label>
+	<div class="w-100"></div>
+	<label class="btn ml-n1 btn-secondary m-1">
+		<input type="radio" name="diceType" id="option8" autocomplete="off" value="20">
+		<?php printf(
+		'<img src="%1$s" alt="polygon dice d20 sprite" class="float-left"/>',
+		plugins_url( '/assets/images/d20.svg', __FILE__ )
+		); ?><span class="center mr-2">d20</span>
+	</label>
+	<label class="btn rounded-0 btn-secondary m-1">
+		<input type="radio" name="diceType" id="option9" autocomplete="off" value="100">
+		<?php printf(
+		'<img src="%1$s" alt="polygon dice d100 sprite" class="float-left"/>',
+		plugins_url( '/assets/images/d100.svg', __FILE__ )
+		); ?><span class="center">d100</span>
+	</label>
+	<div class="w-100"></div>
+</div>
+
+<!--  -->
+
+
+<div id="mh-rpg-dice-container-widget">
+		<div class="row">
+			<div>
+				<button class="dice-widget" type="number" name="2" value="0" id="spot0" onclick="incrementDice(id, value)">Number of d2:</button>
+			</div>
+			<div>
+				<p>Number of d4 :</p>
+				<input class="dice-widget" type="number" name="4" value="0" id="spot1" >
+			</div>
+	</div>
+		<div class="row">
+			<div>
+				<p>Number of d6 :</p>
+				<input class="dice-widget" type="number" name="6" value="0" id="spot2">
+			</div>
+			<div>
+				<p>Number of d8 :</p>
+				<input class="dice-widget" type="number" name="8" value="0" id="spot3">
+			</div>
+		</div>
+		<div class="row">
+			<div>
+				<p>Number of d10 :</p>
+				<input class="dice-widget" type="number" name="10" value="0" id="spot4">
+			</div>
+			<div>
+				<p>Number of d12 :</p>
+				<input class="dice-widget" type="number" name="12" value="0" id="spot5">
+			</div>
+		</div>
+		<div class="row">
+			<div>
+				<p>Number of d20 :</p>
+				<input class="dice-widget" type="number" name="20" value="0" id="spot6">
+			</div>
+			<div>
+				<p>Number of d100 :</p>  
+				<input class="dice-widget" type="number" name="100" value="0" id="spot7">
+			</div>
+		</div>
+	
+		<div>
+			<p>Modifier : <br>
+			</p><input type="number" id="mh-rpg-modifier-widget" value="0">
+		</div>
+	
+		<label for="mh-rpg-display-all-cb-widget">Display all rolls? 
+		<input type="checkbox" id="mh-rpg-display-all-cb-widget"></label><br>
+		
+		<button type="button" id="mh-rpg-roll-button-widget">Roll</button>
+		<div>
+			<p><b>Modifier</b> : <span id="modifier-widget"></span></p>
+			<p><b>Result without modifier</b> : <span id="resultNoModif"></span><br/>
+			<p><b>Result Total</b> : <span id="resultDice"></span><br/>
+				<span id="mh-rpg-dice-roll-widget"></span> 
+		<span id="mh-rpg-all-rolls-widget"></span>	
+		
+		
+	</div>
+	<script>
+		
+		function incrementDice(id, value){
+	
+			var button = document.getElementById(id);
+			var newValue = parseInt(document.getElementById(id).value)+1;
+			document.getElementById(id).value = newValue;
+			button.innerHTML = "Number of d2 : " + newValue;
+	
+			console.log(button, id, newValue, typeof newValue)
+		}
+	
+	
+	</script>

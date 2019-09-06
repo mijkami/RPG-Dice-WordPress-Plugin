@@ -1,0 +1,10 @@
+#mh-rpg-dice-container-widget{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
