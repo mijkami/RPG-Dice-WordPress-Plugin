@@ -11,7 +11,7 @@ _/    _/    _/_/_/    _/_/_/    _/_/_/  _/    _/    _/    _/_/_/
 # WordPress 
 
 Building a WP plugin.
-Best used with the simple [wordpress theme from the same guy](https://github.com/mijkami/Another-Wordpress-Theme/.
+Best used with the simple [wordpress theme from the same guy](https://github.com/mijkami/Another-Wordpress-Theme/).
 Best used as a sidebar widget.
 Made using the simple [RPG dice module](https://fr.wordpress.org/plugins/rpg-dice-roller/) and expanding / modifying from there (adding support of different dice and crafting the whole graphical interface).
 
@@ -20,7 +20,7 @@ Made using the simple [RPG dice module](https://fr.wordpress.org/plugins/rpg-dic
 
 - Use a working WordPress theme such as my simple [wordpress theme](https://github.com/mijkami/Another-Wordpress-Theme/),
 - Download the current project,
-- Paste the whole "/Another-RPG-Dice-Plugin/" folder into "mainFolder/wp-content/themes/",
+- Paste the whole "RPG-Dice-WordPress-Plugin" folder into "mainFolder/wp-content/themes/",
 - Log into your dashboard (going to http://yourwebsite/wp-admin/)
 - In the right sidebar : go to Extensions
 - Scroll down and activate "RPG Dice Roller - DG Edition",
