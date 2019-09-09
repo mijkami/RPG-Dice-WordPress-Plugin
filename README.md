@@ -8,6 +8,10 @@ _/    _/    _/_/_/    _/_/_/    _/_/_/  _/    _/    _/    _/_/_/
                                                                      
 </pre>
 
+# About
+
+Simulation of multiple RPG-like dice into a WP widget plugin
+
 # WordPress 
 
 Building a WP plugin.
